@@ -47,19 +47,19 @@ angular.module('topprApp')
         },function(){
 
         });
+      }
+
     }
+    $scope.submit = function(){
+        if($scope.user.title){
+          var pushweb = service.pushWeb($scope.user.title,$scope.user.url,$scope.user.tag);
+          pushweb.then(function(response){
+            $scope.pushweb = response;
+            initUsr();
+          },function(){
 
-  }
-
-
-      $scope.submit = function(){
-        var pushweb = service.pushWeb($scope.user.title,$scope.user.url,$scope.user.tag);
-        pushweb.then(function(response){
-          $scope.pushweb = response;
-          initUsr();
-        },function(){
-
-        })
+          })
+        }
       }
 
   });

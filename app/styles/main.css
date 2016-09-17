@@ -145,3 +145,15 @@ md-input-container {
     margin: 8px 0 !important;
 
 }
+.header ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.header ul li{
+  display: inline;
+}
+
+.header ul li a {
+    color: cornsilk;
+}
