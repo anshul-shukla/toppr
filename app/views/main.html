@@ -1,0 +1,47 @@
+<div>
+<div class="leftContainer">
+  <div class="count"> We have found {{count}} Web/ personal portfolio.</div>
+  <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch >
+  <md-input-container style="width: 90%; margin: 18px auto;">
+    <label>Search</label>
+    <input ng-model="searchText">
+  </md-input-container>
+  </md-card>
+  <md-card dir-paginate="d in details | itemsPerPage: 2 | filter:searchText" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{d.title}}</span>
+            <span class="md-subhead">{{d.tag}}</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-sm card-media"><img src="{{d.favicon_image}}" /></div>
+          </md-card-title-media>
+        </md-card-title>
+        <div layout="row">
+          <div flex style="text-align: left; padding-left: 20px;">{{d.url_address}}</div>
+          <div flex style="text-align: right; padding-right: 20px;"><md-button ng-click="likeIt(this)" style="min-width: inherit; padding: 5px;"><img style="height: 25px; margin-right: 10px;" src="/images/like.png"></md-button>{{d.like}}</div>
+        </div>
+      </md-card>
+      <dir-pagination-controls></dir-pagination-controls>
+</div>
+
+<div class="rightContainer">
+  <form>
+    <h3>Contribute/Add Website</h3>
+    <md-input-container style="width:100%;">
+      <label>Title</label>
+      <input ng-model="user.title" isRequired>
+    </md-input-container>
+    <md-input-container style="width:100%;">
+      <label>Url</label>
+      <input ng-model="user.url" isRequired>
+    </md-input-container>
+    <md-input-container style="width:100%;">
+      <label>Tag</label>
+      <input ng-model="user.tag" isRequired>
+    </md-input-container>
+     <md-button class="md-raised md-primary" ng-click="submit()">Push Website</md-button>
+  </form>
+</div>
+
+</div>
